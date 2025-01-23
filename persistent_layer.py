@@ -9,12 +9,14 @@ from langchain.schema import HumanMessage, SystemMessage, BaseMessage
 from langchain_core.messages import ToolMessage
 from langchain_community.tools.tavily_search import TavilySearchResults
 import os
+from langgraph.checkpoint.memory import MemorySaver
 
 # https://app.tavily.com/home?code=htf-dx2MTxCv2xWBJJDO38De2tyo2VbpCuRgruQ413U9n&state=eyJyZXR1cm5UbyI6Ii9ob21lIn0
 # https://langchain-ai.github.io/langgraph/tutorials/introduction/#part-1-build-a-basic-chatbot
 # pip install langchain-openai
 # pip install langgraph
 # pip install langchain
+
 
 def get_openai_keys():
     config = configparser.ConfigParser()
@@ -36,6 +38,8 @@ os.environ["TAVILY_API_KEY"] = TAVILY_API_KEY()
 tool = TavilySearchResults(max_results=2)
 tools = [tool]
 llm_with_tools = llm.bind_tools(tools)
+
+memory = MemorySaver()
 
 
 class BasicToolNode:
@@ -67,18 +71,18 @@ class BasicToolNode:
             )
         return {"messages": outputs}
 
-
 class State(TypedDict):
     messages: Annotated[list[BaseMessage], add_messages]
 
 def chatbot(state: State):
     #return {"messages": [llm.invoke(state["messages"])]} //Call with out tools
+    response = llm_with_tools.invoke(state["messages"])
     return {"messages": [llm_with_tools.invoke(state["messages"])]}
  
 def stream_graph_updates(user_input: BaseMessage, graph):
-    for event in graph.stream({"messages": [{"role": "user", "content": user_input}]}):
-        for value in event.values():
-            print("Assistant:", value["messages"][-1].content)
+    events = graph.stream({"messages": [{"role": "user", "content": user_input}]}, config, stream_mode ="values",) 
+    for event in events :
+        event["messages"][-1].pretty_print()
             
 def addition(state: State):
     messages = state["messages"]
@@ -119,6 +123,8 @@ def route_tools(
         return "tools"
     return END
 
+config = {"configurable": {"thread_id": "1"}}
+
 def main():
 
     
@@ -132,7 +138,7 @@ def main():
     graph_builder.add_edge(START, "chatbot")
     graph_builder.add_edge("chatbot", END)
 
-    # The `tools_condition` function returns "tools" if the chatbot asks to use a tool, and "END" if
+    # The `route_tools` function returns "tools" if the chatbot asks to use a tool, and "END" if
     # it is fine directly responding. This conditional routing defines the main agent loop.
     graph_builder.add_conditional_edges(
         "chatbot",
@@ -146,7 +152,7 @@ def main():
     )
     # Any time a tool is called, we return to the chatbot to decide the next step
     graph_builder.add_edge("tools", "chatbot")
-    graph = graph_builder.compile()
+    graph = graph_builder.compile(checkpointer=memory)
     
     while True:
         try:
