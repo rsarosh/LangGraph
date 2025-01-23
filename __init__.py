@@ -16,16 +16,18 @@ import os
 # pip install langgraph
 # pip install langchain
 
-
-
 class BasicToolNode:
     """A node that runs the tools requested in the last AIMessage."""
 
     def __init__(self, tools: list) -> None:
+        # Initialize the BasicToolNode with a list of tools
+        # Create a dictionary mapping tool names to tool instances for easy access
         self.tools_by_name = {tool.name: tool for tool in tools}
 
     def __call__(self, inputs: dict):
+        # Extract the list of messages from the inputs dictionary, or use an empty list if not present
         if messages := inputs.get("messages", []):
+            # Get the last message from the list of messages
             message = messages[-1]
         else:
             raise ValueError("No message found in input")
@@ -43,9 +45,6 @@ class BasicToolNode:
             )
         return {"messages": outputs}
 
-
-
-
 def get_openai_keys():
     config = configparser.ConfigParser()
     config.read('config.ini')
@@ -54,11 +53,7 @@ def get_openai_keys():
 def TAVILY_API_KEY():
     config = configparser.ConfigParser()
     config.read('config.ini')
-    return config['DEFAULT']['OpenAI_KEYS']
-
-
-
-
+    return config['DEFAULT']['TAVILY_API_KEY']
 
 llm = ChatOpenAI(
     model_name="gpt-4o",
@@ -75,7 +70,7 @@ class State(TypedDict):
     messages: Annotated[list[BaseMessage], add_messages]
 
 def chatbot(state: State):
-    #return {"messages": [llm.invoke(state["messages"])]}
+    #return {"messages": [llm.invoke(state["messages"])]} //Call with out tools
     return {"messages": [llm_with_tools.invoke(state["messages"])]}
  
 def stream_graph_updates(user_input: BaseMessage, graph):
@@ -121,9 +116,6 @@ def route_tools(
     if hasattr(ai_message, "tool_calls") and len(ai_message.tool_calls) > 0:
         return "tools"
     return END
-
-
-
 
 def main():
 
