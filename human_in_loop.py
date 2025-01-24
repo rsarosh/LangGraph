@@ -37,6 +37,7 @@ llm = ChatOpenAI(
     openai_api_key=get_openai_keys()
 )
 
+# define a new tool that requests human assistance and then add it to the list of tools
 @tool
 def human_assistance(query: str) -> str:
     """Request assistance from a human."""
@@ -63,12 +64,6 @@ def chatbot(state: State):
     return {"messages": [message]}
  
 def stream_graph_updates(user_input: BaseMessage, graph):
-    # human_response = (
-    # "We, the experts are here to help! We'd recommend you check out LangGraph to build your agent."
-    # " It's much more reliable and extensible than simple autonomous agents."
-    # )
-
-    # human_command = Command(resume={"data": human_response})
     events = graph.stream(
         {"messages": [{"role": "user", "content": user_input}]},
         config,
@@ -90,10 +85,9 @@ def main():
     tool_node = ToolNode(tools=tools)
     graph_builder.add_node("tools", tool_node)
     graph_builder.add_node("chatbot", chatbot)
-    # graph_builder.add_node("add", addition)
-    # graph_builder.add_node("multiply", multiply)
+
     graph_builder.add_edge(START, "chatbot")
-    # graph_builder.add_edge("chatbot", END)
+    graph_builder.add_edge("chatbot", END)
 
     # The `route_tools` function returns "tools" if the chatbot asks to use a tool, and "END" if
     # it is fine directly responding. This conditional routing defines the main agent loop.
@@ -107,14 +101,30 @@ def main():
     
     while True:
         try:
+            # I need some expert guidance for building an AI agent. Could you request assistance for me?
             user_input =  input("User: ")
             if user_input.lower() in ["quit", "exit", "q"]:
                 print("Goodbye!")
                 break
             stream_graph_updates(user_input, graph)
+
+            stream_graph_human_response(graph)
+
         except Exception as e:
             print("Error:", e)
             break
+
+def stream_graph_human_response(graph):
+    human_response = (
+                "We, the experts are here to help! We'd recommend you check out LangGraph to build your agent."
+                " It's much more reliable and extensible than simple autonomous agents."
+            )
+
+    human_command = Command(resume={"data": human_response})
+    events = graph.stream(human_command, config, stream_mode="values") #this line should take the control to tool
+    for event in events:
+        if "messages" in event:
+            event["messages"][-1].pretty_print()
 
 
 if __name__ == '__main__':

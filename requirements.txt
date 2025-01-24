@@ -1,0 +1,8 @@
+configparser==5.0.2
+json==2.0.9
+langchain-openai==0.0.1
+typing-extensions==3.10.0.2
+langgraph==0.1.0
+langchain-core==0.0.1
+langchain-community==0.0.1
+os==0.1.4

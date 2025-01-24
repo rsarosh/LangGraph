@@ -1,3 +1,4 @@
+#Basic Chatbot
 import configparser
 import json
 from langchain_openai import ChatOpenAI 
@@ -10,11 +11,6 @@ from langchain_core.messages import ToolMessage
 from langchain_community.tools.tavily_search import TavilySearchResults
 import os
 
-# https://app.tavily.com/home?code=htf-dx2MTxCv2xWBJJDO38De2tyo2VbpCuRgruQ413U9n&state=eyJyZXR1cm5UbyI6Ii9ob21lIn0
-# https://langchain-ai.github.io/langgraph/tutorials/introduction/#part-1-build-a-basic-chatbot
-# pip install langchain-openai
-# pip install langgraph
-# pip install langchain
 
 def get_openai_keys():
     config = configparser.ConfigParser()
@@ -80,27 +76,6 @@ def stream_graph_updates(user_input: BaseMessage, graph):
         for value in event.values():
             print("Assistant:", value["messages"][-1].content)
             
-def addition(state: State):
-    messages = state["messages"]
-    if len(messages) == 1:
-        try:
-            number = float(messages[-1].content)
-            return {"messages": [SystemMessage(content=f"The result is {5 + number}.")]}
-        except ValueError:
-            return {"messages": [SystemMessage(content="Please provide a valid number.")]}
-    else:
-        return {"messages": [SystemMessage(content="I don't understand.")]} 
-
-def multiply(state: State):
-    messages = state["messages"]
-    if len(messages) == 1:
-        try:
-            number = float(messages[-1].content)
-            return {"messages": [SystemMessage(content=f"The result is {5 * number}.")]}
-        except ValueError:
-            return {"messages": [SystemMessage(content="Please provide a valid number.")]}
-    else:
-        return {"messages": [SystemMessage(content="I don't understand.")]}
 
 def route_tools(
     state: State,
