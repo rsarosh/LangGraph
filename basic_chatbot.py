@@ -1,7 +1,7 @@
-#Basic Chatbot
+# Basic Chatbot
 import configparser
 import json
-from langchain_openai import ChatOpenAI 
+from langchain_openai import ChatOpenAI
 from typing import Annotated
 from typing_extensions import TypedDict
 from langgraph.graph import StateGraph, START, END
@@ -11,16 +11,8 @@ from langchain_core.messages import ToolMessage
 from langchain_community.tools.tavily_search import TavilySearchResults
 import os
 
+from util import get_openai_keys, get_tavily_api_keys
 
-def get_openai_keys():
-    config = configparser.ConfigParser()
-    config.read('config.ini')
-    return config['DEFAULT']['OpenAI_KEYS']
-
-def TAVILY_API_KEY():
-    config = configparser.ConfigParser()
-    config.read('config.ini')
-    return config['DEFAULT']['TAVILY_API_KEY']
 
 llm = ChatOpenAI(
     model_name="gpt-4o",
@@ -28,37 +20,37 @@ llm = ChatOpenAI(
     openai_api_key=get_openai_keys()
 )
 
-os.environ["TAVILY_API_KEY"] = TAVILY_API_KEY()
+os.environ["TAVILY_API_KEY"] = get_tavily_api_keys()
 tool = TavilySearchResults(max_results=2)
 tools = [tool]
 llm_with_tools = llm.bind_tools(tools)
 
- 
+
 class State(TypedDict):
     messages: Annotated[list[BaseMessage], add_messages]
 
-def chatbot(state: State):
-    return {"messages": [llm.invoke(state["messages"])]} 
 
- 
+def chatbot(state: State):
+    return {"messages": [llm.invoke(state["messages"])]}
+
+
 def stream_graph_updates(user_input: BaseMessage, graph):
     for event in graph.stream({"messages": [{"role": "user", "content": user_input}]}):
         for value in event.values():
             print("Assistant:", value["messages"][-1].content)
-            
+
 
 def main():
 
-    
     graph_builder = StateGraph(State)
     graph_builder.add_node("chatbot", chatbot)
     graph_builder.add_edge(START, "chatbot")
     graph_builder.add_edge("chatbot", END)
     graph = graph_builder.compile()
-    print ("Welcome to the basic chatbot! Type 'quit' to exit.")
+    print("Welcome to the basic chatbot! Type 'quit' to exit.")
     while True:
         try:
-            user_input =  input("User: ")
+            user_input = input("User: ")
             if user_input.lower() in ["quit", "exit", "q"]:
                 print("Goodbye!")
                 break
@@ -66,6 +58,7 @@ def main():
         except Exception as e:
             print("Error:", e)
             break
+
 
 if __name__ == '__main__':
     main()

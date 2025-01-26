@@ -1,6 +1,6 @@
 import configparser
 import json
-from langchain_openai import ChatOpenAI 
+from langchain_openai import ChatOpenAI
 from typing import Annotated
 from typing_extensions import TypedDict
 from langgraph.graph import StateGraph, START, END
@@ -11,22 +11,13 @@ from langchain_community.tools.tavily_search import TavilySearchResults
 import os
 from langgraph.checkpoint.memory import MemorySaver
 
+from util import get_openai_keys, get_tavily_api_keys
+
 # https://app.tavily.com/home?code=htf-dx2MTxCv2xWBJJDO38De2tyo2VbpCuRgruQ413U9n&state=eyJyZXR1cm5UbyI6Ii9ob21lIn0
 # https://langchain-ai.github.io/langgraph/tutorials/introduction/#part-1-build-a-basic-chatbot
 # pip install langchain-openai
 # pip install langgraph
 # pip install langchain
-
-
-def get_openai_keys():
-    config = configparser.ConfigParser()
-    config.read('config.ini')
-    return config['DEFAULT']['OpenAI_KEYS']
-
-def TAVILY_API_KEY():
-    config = configparser.ConfigParser()
-    config.read('config.ini')
-    return config['DEFAULT']['TAVILY_API_KEY']
 
 llm = ChatOpenAI(
     model_name="gpt-4o",
@@ -34,7 +25,7 @@ llm = ChatOpenAI(
     openai_api_key=get_openai_keys()
 )
 
-os.environ["TAVILY_API_KEY"] = TAVILY_API_KEY()
+os.environ["TAVILY_API_KEY"] = get_tavily_api_keys()
 tool = TavilySearchResults(max_results=2)
 tools = [tool]
 llm_with_tools = llm.bind_tools(tools)
@@ -71,19 +62,24 @@ class BasicToolNode:
             )
         return {"messages": outputs}
 
+
 class State(TypedDict):
     messages: Annotated[list[BaseMessage], add_messages]
 
+
 def chatbot(state: State):
-    #return {"messages": [llm.invoke(state["messages"])]} //Call with out tools
+    # return {"messages": [llm.invoke(state["messages"])]} //Call with out tools
     response = llm_with_tools.invoke(state["messages"])
     return {"messages": [llm_with_tools.invoke(state["messages"])]}
- 
+
+
 def stream_graph_updates(user_input: BaseMessage, graph):
-    events = graph.stream({"messages": [{"role": "user", "content": user_input}]}, config, stream_mode ="values",) 
-    for event in events :
+    events = graph.stream({"messages": [
+                          {"role": "user", "content": user_input}]}, config, stream_mode="values",)
+    for event in events:
         event["messages"][-1].pretty_print()
-            
+
+
 def addition(state: State):
     messages = state["messages"]
     if len(messages) == 1:
@@ -93,7 +89,8 @@ def addition(state: State):
         except ValueError:
             return {"messages": [SystemMessage(content="Please provide a valid number.")]}
     else:
-        return {"messages": [SystemMessage(content="I don't understand.")]} 
+        return {"messages": [SystemMessage(content="I don't understand.")]}
+
 
 def multiply(state: State):
     messages = state["messages"]
@@ -105,6 +102,7 @@ def multiply(state: State):
             return {"messages": [SystemMessage(content="Please provide a valid number.")]}
     else:
         return {"messages": [SystemMessage(content="I don't understand.")]}
+
 
 def route_tools(
     state: State,
@@ -118,19 +116,21 @@ def route_tools(
     elif messages := state.get("messages", []):
         ai_message = messages[-1]
     else:
-        raise ValueError(f"No messages found in input state to tool_edge: {state}")
+        raise ValueError(
+            f"No messages found in input state to tool_edge: {state}")
     if hasattr(ai_message, "tool_calls") and len(ai_message.tool_calls) > 0:
         return "tools"
     return END
 
+
 config = {"configurable": {"thread_id": "1"}}
+
 
 def main():
 
-    
     graph_builder = StateGraph(State)
     tool_node = BasicToolNode(tools=[tool])
-    
+
     graph_builder.add_node("tools", tool_node)
     graph_builder.add_node("chatbot", chatbot)
     # graph_builder.add_node("add", addition)
@@ -153,10 +153,10 @@ def main():
     # Any time a tool is called, we return to the chatbot to decide the next step
     graph_builder.add_edge("tools", "chatbot")
     graph = graph_builder.compile(checkpointer=memory)
-    
+
     while True:
         try:
-            user_input =  input("User: ")
+            user_input = input("User: ")
             if user_input.lower() in ["quit", "exit", "q"]:
                 print("Goodbye!")
                 break

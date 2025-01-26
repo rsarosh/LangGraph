@@ -1,0 +1,257 @@
+Cystic fibrosis
+Other Names: CF; cystic fibrosis lung disease, modifier of; mucoviscidosis; pseudomonas aeruginosa, susceptibility to chronic infection by, in cystic fibrosis
+
+Disease Information
+Summary
+A rare, genetic pulmonary disorder characterized by sweat, thick mucus secretions causing multisystem disease, chronic infections of the lungs, bulky diarrhea and short stature.
+Resource(s) for Medical Professionals and Scientists on This Disease:
+RARe-SOURCE™  offers rare disease gene variant annotations and links to rare disease gene literature.
+GeneReviews  provides clinical information on genetic diseases, including diagnosis, treatment, and genetic counseling.
+
+About Cystic fibrosis
+Many rare diseases have limited information. Currently, GARD aims to provide the following information for this disease:
+
+Population Estimate: Fewer than 200,000 people in the U.S. have this disease.
+Symptoms: May start to appear at any time in life.
+Cause: This disease is caused by a change in the genetic material (DNA).
+Organizations: Patient organizations are available to help find a specialist, or advocacy and support for this specific disease.
+Newborn Screening: This disease may be detected through newborn screening tests performed soon afterbirth.
+Categories: Genetic diseases  Gastrointestinal diseases  Respiratory diseases
+
+Causes
+What Causes This Disease?
+
+Genetic Mutations
+Cystic fibrosis is caused by genetic mutations, also known as pathogenic variants. Genetic mutations can be hereditary, when parents pass them down to their children, or they may occur randomly when cells are dividing. Genetic mutations may also result from contracted viruses, environmental factors, such as UV radiation from sunlight exposure, or a combination of any of these. Learn more about genetic diseases from the National Library of Medicine (NLM) (https://medlineplus.gov/geneticdisorders.html).
+
+If you suspect you may have this disease, you may want to start collecting your family health history. Information such as other family members who have had similar symptoms, when their/your symptoms first appeared, or exposures to any potential disease-causing environmental factors should be discussed with your medical team. This tool from the Surgeon General can help you collect your family health history (https://www.cdc.gov/family-health-history/about/index.html).
+
+Known Genetic Mutations
+Cystic fibrosis is caused by genetic mutations in the following known gene(s):
+
+CFTR
+Learn more about these genes by searching them on the National Library of Medicine (NLM) (https://medlineplus.gov/genetics/gene/).
+
+Given these known genetic mutation(s), you may want to ask your health care team if genetic testing is right for you. Genetic tests are laboratory tests that use samples of blood, saliva, or other tissues to help identify changes in genes, chromosomes, or proteins. Genetic testing can help confirm or rule out a suspected genetic disease, or can provide other useful information to your health care team. Learn more about genetic testing from the National Human Genome Research Institute (NHGRI) (https://www.genome.gov/FAQ/Genetic-Testing).
+
+
+Can This Disease Be Passed Down From Parent to Child?
+Yes. It is possible for a biological parent to pass down genetic mutations that cause or increase the chances of getting this disease to their child. This is known as inheritance. Knowing whether other family members have previously had this disease, also known as family health history, can be very important information for your medical team. This tool from the Surgeon General can help you collect your family health history (https://www.cdc.gov/family-health-history/about/index.html).
+
+There are multiple ways, or patterns, a disease can be inherited depending on the gene(s) involved. Based on GARD's current data, this disease can be inherited in the following pattern(s):
+
+Autosomal Recessive
+Autosomal means the gene involved is located on one of the numbered chromosomes. Recessive means that a child must inherit two copies of the mutated gene, one from each biological parent, to be affected by the disease. A carrier is a person who only has one copy of the genetic mutation. A carrier usually doesn't show any symptoms of the disease.
+
+If both biological parents are carriers, there is a 25% their child inherits both copies of the mutated gene and is affected by the disease. Additionally, there is a 50% chance their child inherits only one copy of the mutated gene and is a carrier.
+
+Learn more about inheritance patterns from the National Library of Medicine (NLM) (https://medlineplus.gov/genetics/understanding/inheritance/inheritancepatterns/).
+
+
+When Do Symptoms of Cystic fibrosis Begin?
+Symptoms of this disease may start to appear at any time in life.
+
+The age symptoms may begin to appear differs between diseases. Symptoms may begin in a single age range, or during several age ranges. The symptoms of some diseases may begin at any age. Knowing when symptoms may have appeared can help medical providers find the correct diagnosis.
+
+
+Symptoms
+The types of symptoms experienced, and their intensity, may vary among people with this disease. Your experience may be different from others. Consult your health care team for more information.
+
+The following describes the symptom(s) associated with this disease along with the corresponding body system(s), description, synonyms, and frequency (Note: Not all possible symptoms may be listed):
+
+Medical Term: Biliary cirrhosis
+Description: Progressive destruction of the small-to-medium bile ducts of the intrahepatic biliary tree, which leads to progressive cholestasis and often end-stage liver disease.
+Frequency: Very frequent
+
+Medical Term: Exocrine pancreatic insufficiency
+Description: Impaired function of the exocrine pancreas associated with a reduced ability to digest foods because of lack of digestive enzymes.
+Synonyms: Inability to properly digest food due to lack of pancreatic digestive enzymes
+Frequency: Very frequent
+
+Medical Term: Hepatomegaly
+Description: Abnormally increased size of the liver.
+Synonyms: Enlarged liver
+Frequency: Occasional
+
+Medical Term: Immunodeficiency
+Description: Failure of the immune system to protect the body adequately from infection, due to the absence or insufficiency of some component process or substance.
+Synonyms: Decreased immune function; Immune deficiency
+Frequency: Very frequent
+
+Medical Term: Malabsorption
+Description: Impaired ability to absorb one or more nutrients from the intestine.
+Synonyms: Intestinal malabsorption; Malabsorption
+Frequency: Very frequent
+
+Medical Term: Pulmonary fibrosis
+Description: Replacement of normal lung tissues by fibroblasts and collagen.
+Frequency: Very frequent
+
+Medical Term: Recurrent respiratory infections
+Description: An increased susceptibility to respiratory infections as manifested by a history of recurrent respiratory infections.
+Synonyms: Frequent respiratory infections; Multiple respiratory infections; Recurrent respiratory infections; respiratory infections, recurrent; Susceptibility to respiratory infections
+Frequency: Very frequent
+
+Diagnostic Journey
+On average, it takes more than six years to receive an accurate rare disease diagnosis. Many primary care providers (PCPs) may not be familiar with rare diseases, and you may need to see multiple specialists to reach the correct diagnosis. However, advocating for yourself with your healthcare team may help speed your time to diagnosis. To combat common challenges, be prepared:
+Find disease-specific information to discuss with your healthcare providers.
+Ask for diagnostic tests.
+Request referrals to specialists.
+Knowing where to start your diagnostic journey and how to navigate the next steps are critical to speeding your time to diagnosis
+
+Your Diagnostic Team
+How can a diagnostic team help?
+Establishing care with a dedicated primary care provider (PCP) is an important early step in your rare disease journey. A PCP can help improve care and shorten the time to diagnosis by providing referrals to the appropriate specialists. These specialists, with advanced training in different body systems or types of diseases, can offer the specialized diagnostic procedures you need.
+
+Use this tool (https://www.medicare.gov/care-compare/?providerType=Physician) by Medicare to find a PCP in your area by inputting your location and keyword "Primary Care Provider."
+
+A PCP that specializes in the care of children is called a pediatrician. Use this tool (https://www.healthychildren.org/English/tips-tools/find-pediatrician/Pages/Pediatrician-Referral-Service.aspx)  by the American Academy of Pediatrics to find a pediatrician in your area  by inputting your location.
+
+Diagnostic teams for Cystic fibrosis may include:
+Gastroenterology 
+Gastroenterology specialists focus on diagnosing, treating, and managing diseases that affect the digestive system. Specialists in this field are know as gastrointestinal (GI) specialists or gastroenterologists. These specialists commonly use imaging studies and use cameras to examine the inside of the digestive tract to diagnose digestive diseases.
+
+You may be able to find a gastroenterologist  in your area (directory by the American College of Gastroenterology) (https://gi.org/patients/find-a-gastroenterologist/).
+
+Genetics
+Genetic specialists focus on diagnosing, treating, and managing patients with genetic changes that affect a person’s health. Specialists known as genetic counselors and geneticists commonly interview patients about family history and discuss genetic risks to diagnose genetic conditions. They may also use genetic testing to determine a diagnosis. Genetic counselors often specialize in certain types of genetic diseases like cancer, or different life stages like prenatal or pediatric genetic counseling.
+
+You may be able to find a genetic specialist  in your area (directory by the American College of Medical Genetics and Genomics)(https://clinics.acmg.net/).
+
+Pulmonology 
+Pulmonology specialists focus on diagnosing, treating, and managing diseases that affect breathing, the lungs, and airways. Pulmonologists commonly use blood tests, breathing tests, imaging, and sleep studies to make a diagnosis.
+
+You may be able to find a pulmonologist in your area by inputting your location and keyword "Pulmonology" (directory by Medicare) (https://www.medicare.gov/care-compare/?providerType=Physician).
+
+Urology
+Urology specialists focus on diagnosing, treating, and managing diseases affecting the urinary tract for all sexes. Urologists also manage conditions affecting the male reproductive system. Urologists may use imaging studies or blood or urine testing to diagnose reproductive and urogenital diseases.
+
+You may be able to find a urologist in your area by inputting your location and keyword "Urology" (directory by Medicare) (https://www.medicare.gov/care-compare/?providerType=Physician).
+
+
+Multidisciplinary Care Centers
+Is it time to find a multidisciplinary care center?
+If you've visited your PCP, met with specialists, and undergone the recommended tests, but still do not have a confirmed diagnosis, it may be time to visit a multidisciplinary care center. Multidisciplinary care centers are usually teaching, university, or research hospitals that have teams of medical experts and specialists working together in the same location. This means a wide range of diagnostic tests and clinical knowledge are available at one facility, which can help increase communication and collaboration among your care team. The additional resources often available at multidisciplinary centers may help speed the time to diagnosis for rare diseases.
+Find a multidisciplinary care center in your area (https://www.medicare.gov/care-compare/?providerType=Hospital).
+
+Rare Disease Experts
+How can you find a rare disease expert?
+If a diagnosis remains unknown despite extensive efforts by your PCP and specialists, it can be challenging to know what kind of expert you may need or where to find one. A rare disease expert is a care provider that has knowledge or training on specific disease(s), but there may only be a few experts in your state, region, or country. Rare disease experts may work at large research or teaching hospitals. In complex cases, coordinating with a network of experts can help your care provider find the right diagnosis. 
+Contact a GARD Information Specialist for help finding an expert (https://rarediseases.info.nih.gov/contact).
+
+You can ask your care providers for help finding an expert or use directory tools to search for experts near you. The following organization(s) may maintain a list of experts or expert centers for people living with Cystic fibrosis:
+Cystic Fibrosis Foundation (https://apps.cff.org/ccd?_ga=2.82025426.59739554.1666201790-1265979354.1666201790)
+
+
+Find Your Community
+How Can Patient Organizations Help?
+Patient organizations can help patients and families connect. They build public awareness of the disease and are a driving force behind research to improve patients' lives. They may offer online and in-person resources to help people live well with their disease. Many collaborate with medical experts and researchers.
+
+Services of patient organizations differ, but may include:
+Ways to connect to others and share personal stories
+Easy-to-read information
+Up-to-date treatment and research information
+Patient registries
+Lists of specialists or specialty centers
+Financial aid and travel resources
+
+Please note: GARD provides organizations for informational purposes only and not as an endorsement of their services. Please contact an organization directly if you have questions about the information or resources it provides.
+View GARD's criteria for including patient organizations, which can be found under the FAQs on our About page (https://rarediseases.info.nih.gov/about). Request an update or to have your organization added to GARD (https://contact.rarediseases.info.nih.gov/Gard/s/patient-organization?language=en_US).
+
+Patient Organizations
+Organization Name: American Lung Association
+Who They Serve: People With Cystic fibrosis 
+Country: United States
+
+Organization Name: Boomer Esiason Foundation
+Who They Serve: People With Cystic fibrosis
+Country: United States
+
+Organization Name: Claire’s Place Foundation
+Who They Serve: People With Cystic fibrosis
+Country: United States
+
+Organization Name: Cystic Fibrosis Foundation
+Who They Serve: People With Cystic fibrosis
+Helpful Links: List of Experts (https://apps.cff.org/ccd?_ga=2.82025426.59739554.1666201790-1265979354.1666201790)
+Helpful Links: Research Registry (https://www.cff.org/medical-professionals/patient-registry)
+Country: United States
+
+Organization Name: Cystic Fibrosis Research Institute
+Who They Serve: People With Cystic fibrosis
+Country: United States
+
+Organization Name: EveryLife Foundation for Rare Diseases
+Who They Serve: People With Rare Diseases
+Country: United States
+
+Organization Name: Genetic Alliance
+Who They Serve: People With Rare Diseases
+Country: United States
+
+Organization Name: Global Genes
+Who They Serve: People With Rare Diseases
+Country: United States
+
+Organization Name: National Organization for Rare Disorders
+Who They Serve: People With Rare Diseases
+Country: United States
+
+Participate in Research
+Clinical studies are part of clinical research and play an important role in medical advances, including for rare diseases. Through clinical studies, researchers may ultimately uncover better ways to treat, prevent, diagnose, and understand human diseases.
+
+What Are Clinical Studies?
+Clinical studies are medical research involving people as participants. There are two main types of clinical studies:
+Clinical trials determine if a new test or treatment for a disease is effective and safe by comparing groups receiving different tests/treatments.
+Observational studies involve recording changes over time among a specific group of people in their natural settings.
+Learn more about clinical trials from this U.S. Food & Drug Administration webpage (https://www.fda.gov/patients/clinical-trials-what-patients-need-know)
+
+Why Participate in Clinical Studies?
+People participate in clinical trials for many reasons. People with a disease may participate to receive the newest possible treatment and additional care from clinical study staff as well as to help others living with the same or similar disease. Healthy volunteers may participate to help others and to contribute to moving science forward.
+
+To find the right clinical study we recommend you consult your doctors, other trusted medical professionals, and patient organizations. Additionally, you can use ClinicalTrials.gov to search for clinical studies by disease, terms, or location.
+
+What if There Are No Available Clinical Studies?
+ResearchMatch helps connect people interested in research studies (https://www.researchmatch.org/) with researchers from top medical centers across the United States. Anyone from the U.S. can register with this free program funded by NIH. Researchers from participating institutions use the database to search for and invite patients or healthy volunteers who meet their study criteria to participate.
+
+Join the All of Us Research Program!
+The All of Us Research Program is inviting 1 million people (https://allofus.nih.gov/) from all backgrounds across the U.S. to help build one of the most diverse health databases in history. Researchers will use the data to learn how our biology, lifestyle, and environment affect health. This may one day help them find ways to treat and prevent diseases.
+
+
+ClinicalTrials.gov Logo
+ClinicalTrials.gov, an affiliate of NIH, provides current information on clinical research studies in the United States and abroad. Talk to a trusted doctor before choosing to participate in any clinical study. We recommend checking this site often and searching for studies with related terms/synonyms to improve results.
+Search ClinicalTrials.gov for this disease (https://www.clinicaltrials.gov/ct2/results?cond=cystic+fibrosis&recrs=b&recrs=a)
+
+GARD
+Genetic and Rare Diseases
+Information Center
+Contact a GARD Information Specialist if you need help finding more information on this rare disease or available clinical studies. Please note that GARD cannot enroll individuals in clinical studies.
+1-888-205-2311
+Available toll-free Monday through Friday from 12 pm to 6 pm Eastern Time
+(Except: Federal Holidays (https://www.opm.gov/policy-data-oversight/pay-leave/federal-holidays/))
+
+Contact GARD (https://contact.rarediseases.info.nih.gov/Gard/s/?language=en_US)
+Use the contact form to send your questions to a GARD Information Specialist.
+
+Please allow 2 to 10 business days for us to respond.
+
+
+View Sources & References 
+GARD collects data from a variety of sources to populate its website and provide accurate and reliable information on rare diseases. 
+
+GARD uses data collected from Orphanet (http://www.orpha.net/) and Online Mendelian Inheritance in Man (OMIM) (https://www.omim.org/) to interpret and provide information on rare diseases. This includes names, synonyms, genes, symptom frequency, population estimates and more.
+Orphanet is an online database of rare diseases and orphan drugs that provides aggregated data (http://www.orphadata.org/cgi-bin/index.php) coordinated by INSERM-US14 in Paris.
+OMIM is a database of human genes and genetic phenotypes authored and edited at the McKusick-Nathans Institute of Genetic Medicine (https://www.hopkinsmedicine.org/genetic-medicine), Johns Hopkins University School of Medicine.
+GARD uses Human Phenotype Ontology (HPO) (https://hpo.jax.org/) for standard terminology to represent a disease's phenotypic and clinical features. 
+Download ontology from HPO (https://hpo.jax.org/data/ontology)
+Learn more about HPO (https://academic.oup.com/nar/article/49/D1/D1207/6017351)
+GARD uses information gathered from the National Center for Biotechnology Information's MedGen (https://www.ncbi.nlm.nih.gov/medgen/) to help in explaining genetic and rare diseases.
+Download MedGen Data and FTP (https://ftp.ncbi.nlm.nih.gov/pub/medgen/)
+GARD uses the National Library of Medicine (https://www.nlm.nih.gov/) for a variety of resources on health information.
+Learn about the Newborn Screening Coding and Terminology Guide (https://lhncbc.nlm.nih.gov/newbornscreeningcodes/)
+Find health information from MedlinePlus (https://medlineplus.gov/)
+Learn about the Unified Medical Language System (https://www.nlm.nih.gov/research/umls/index.html)
+GARD uses additional resources when developing content. 
+Review details of "Improving Diagnosis in Health Care" (https://doi.org/10.17226/21794)
+Learn about practices GARD follows when developing easy-to-understand content (https://health.gov/healthliteracyonline/)
+

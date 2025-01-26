@@ -1,0 +1,291 @@
+Rett syndrome
+
+Disease Information
+Summary
+A rare severe, X-linked, neurodevelopmental disorder characterized by rapid developmental regression in infancy, partial or complete loss of purposeful hand movements, loss of speech, gait abnormalities, and stereotypic hand movements, commonly associated with deceleration of head growth, severe intellectual disability, seizures, and breathing abnormalities. The disorder has a progressive clinical course and may associate various comorbidities including gastrointestinal diseases, scoliosis, and behavioral disorders.
+Resource(s) for Medical Professionals and Scientists on This Disease:
+RARe-SOURCE™  offers rare disease gene variant annotations and links to rare disease gene literature.
+GeneReviews  provides clinical information on genetic diseases, including diagnosis, treatment, and genetic counseling.
+
+About Rett syndrome
+Many rare diseases have limited information. Currently, GARD aims to provide the following information for this disease:
+
+Population Estimate:Fewer than 50,000 people in the U.S. have thisdisease.
+Symptoms:May start to appear as an Infant.
+Cause:This disease is caused by a change in the genetic material (DNA).
+Organizations:Patient organizations are available to help find a specialist, or advocacy and support for this specific disease.
+Categories:GeneticdiseasesNeurologicaldiseases
+
+
+Causes
+Rett syndrome is caused by genetic mutations, also known as pathogenic variants. Genetic mutations can be hereditary, when parents pass them down to their children, or they may occur randomly when cells are dividing. Genetic mutations may also result from contracted viruses, environmental factors, such as UV radiation from sunlight exposure, or a combination of any of these. Learn more about genetic diseases from the National Library of Medicine (NLM) https://medlineplus.gov/geneticdisorders.html.
+
+If you suspect you may have this disease, you may want to start collecting your family health history. Information such as other family members who have had similar symptoms, when their/your symptoms first appeared, or exposures to any potential disease-causing environmental factors should be discussed with your medical team. This tool from the Surgeon General can help you collect your family health history (https://www.cdc.gov/family-health-history/about/index.html).
+
+Known Genetic Mutations
+
+
+Rett syndrome is caused by genetic mutations in the following known gene(s):
+
+MECP2
+Learn more about these genes by searching them on the National Library of Medicine (NLM) (https://medlineplus.gov/genetics/gene/).
+
+Given these known genetic mutation(s), you may want to ask your health care team if genetic testing is right for you. Genetic tests are laboratory tests that use samples of blood, saliva, or other tissues to help identify changes in genes, chromosomes, or proteins. Genetic testing can help confirm or rule out a suspected genetic disease, or can provide other useful information to your health care team. Learn more about genetic testing from the National Human Genome Research Institute (NHGRI) (https://www.genome.gov/FAQ/Genetic-Testing).
+
+Can This Disease Be Passed Down From Parent to Child?
+
+Yes. It is possible for a biological parent to pass down genetic mutations that cause or increase the chances of getting this disease to their child. This is known as inheritance. Knowing whether other family members have previously had this disease, also known as family health history, can be very important information for your medical team. This tool from the Surgeon General can help you collect your family health history learn more https://www.cdc.gov/family-health-history/about/index.html.
+
+There are multiple ways, or patterns, a disease can be inherited depending on the gene(s) involved. Based on GARD's current data, this disease can be inherited in the following pattern(s):
+X-Linked
+
+
+X-linked inheritance means the genetic mutation is located on the X chromosome, one of the sex chromosomes. The male sex chromosome pair consists of one X and one Y chromosome (XY). The female sex chromosome pair consists of two X chromosomes (XX). Because males have just one X chromosome, it takes only one copy of the mutated gene to cause the disease. Females that have one copy of the mutated gene may have symptoms similar to those experienced by affected males, but usually have less severe symptoms, or no symptoms at all.
+
+Female parents with one X-linked mutated gene have a 50% chance of passing on the mutation to each of their biological children. Male parents with an X-linked mutated gene will pass on the mutation to all their female children but cannot pass the mutation on to their male children.
+
+Learn more about inheritance patterns from the National Library of Medicine (NLM) (https://medlineplus.gov/genetics/understanding/inheritance/inheritancepatterns/).
+
+When Do Symptoms of Rett syndrome Begin?
+Symptoms of this disease may start to appear as an Infant.
+
+The age symptoms may begin to appear differs between diseases. Symptoms may begin in a single age range, or during several age ranges. The symptoms of some diseases may begin at any age. Knowing when symptoms may have appeared can help medical providers find the correct diagnosis.
+
+Symptoms
+The types of symptoms experienced, and their intensity, may vary among people with this disease. Your experience may be different from others. Consult your health care team for more information.
+
+The following describes the symptom(s) associated with this disease along with the corresponding body system(s), description, synonyms, and frequency (Note: Not all possible symptoms may be listed):
+
+
+Symptoms: Abnormal autonomic nervous system physiology
+A functional abnormality of the autonomic nervous system.
+
+Synonyms:Autonomic dysfunction; Autonomic dysregulation; Dysautonomia
+
+Frequency: Occasional
+
+Symptoms: Abnormal pattern of respiration
+An anomaly of the rhythm or depth of breathing.
+
+Synonyms:Abnormal pattern of respiration; Abnormal respiratory patterns; Unusual breathing patterns
+
+Frequency: Very frequent
+
+Symptoms: Absent speech
+Complete lack of development of speech and language abilities.
+
+Synonyms:Absent speech development; Lack of language development; Lack of speech; No speech development; No speech or language development; Nonverbal
+
+Frequency:very frequent
+
+Symptoms: Agitation
+A state of exceeding restlessness and excessive motor activity associated with mental distress or a feeling of inner tension.
+
+Frequency: Occasional
+
+Symptoms: Bradykinesia
+Bradykinesia literally means slow movement, and is used clinically to denote a slowness in the execution of movement (in contrast to hypokinesia, which is used to refer to slowness in the initiation of movement).
+
+Synonyms:Slow movements; Slowness of movements
+
+Frequency: Frequent
+
+Symptoms: Cholecystitis
+The presence of inflammatory changes in the gallbladder.
+
+Synonyms:Gallbladder inflammation
+
+Frequency: Occasional
+
+Symptoms: Developmental regression
+Loss of developmental skills, as manifested by loss of developmental milestones.
+Synonyms:Loss of developmental milestones; Mental deterioration in childhood; Neurodevelopmental regression; Psychomotor regression; Psychomotor regression beginning in infancy; Psychomotor regression in infants; Psychomotor regression, progressive
+
+Frequency: Very frequent
+
+Symptoms: Difficulty walking
+Reduced ability to walk (ambulate).
+
+Synonyms:Difficulty in walking; Difficulty walking; Walking disability
+
+Frequency: Frequent
+
+Symptoms: Dystonia
+An abnormally increased muscular tone that causes fixed abnormal postures. There is a slow, intermittent twisting motion that leads to exaggerated turning and posture of the extremities and trunk.
+Synonyms:Dystonic movements
+
+Frequency: Frequent
+
+
+Symptoms: Failure to thrive
+Failure to thrive (FTT) refers to a child whose physical growth is substantially below the norm.
+
+Synonyms:Faltering weight; Postnatal failure to thrive; Weight faltering
+
+Frequency: Frequent
+
+Symptoms: Gait disturbance
+The term gait disturbance can refer to any disruption of the ability to walk. In general, this can refer to neurological diseases but also fractures or other sources of pain that is triggered upon walking. However, in the current context gait disturbance refers to difficulty walking on the basis of a neurological or muscular disease.
+
+Synonyms:Abnormal gait; Abnormal walk; Gait abnormalities; Gait difficulties; Gait disturbances; Impaired gait
+
+Frequency: Very frequent
+
+
+Symptoms: Global developmental delay
+A delay in the achievement of motor or mental milestones in the domains of development of a child, including motor skills, speech and language, cognitive skills, and social and emotional skills. This term should only be used to describe children younger than five years of age.
+
+Synonyms:Delayed cognitive development; Delayed development; Delayed developmental milestones; Delayed intellectual development; Delayed milestones; Delayed psychomotor development; Developmental delay; Developmental delay in early childhood; Developmental delay, global; Developmental retardation; Lack of psychomotor development; Motor and developmental delay; Psychomotor delay; Psychomotor development deficiency; Psychomotor development failure; Psychomotor developmental delay; Retarded development; Retarded mental development; Retarded psychomotor development
+
+Frequency: Very frequent
+
+Symptoms: High-pitched cry
+A type of crying in an abnormally high-pitched voice.
+
+Frequency: Very frequent
+
+Symptoms: Inability to walk
+Incapability to ambulate.
+
+Synonyms:Inability to walk; Non-ambulatory
+
+Frequency:Occasional
+
+Symptoms: Increased CSF lactate
+Increased concentration of lactate in the cerebrospinal fluid.
+
+Synonyms:Hyperlactatorachia; Increased cerebrospinal fluid lactate; Increased CSF lactic acid
+
+Frequency: Occasional
+
+Symptoms: Increased serum leptin
+An increased concentration of leptin in the blood.
+Synonyms:Elevated circulating leptin level
+
+Frequency: Occasional
+
+
+Symptoms: Infantile muscular hypotonia
+Muscular hypotonia (abnormally low muscle tone) manifesting in infancy.
+
+Synonyms:Decreased muscle tone in infant; Hypotonia early; Hypotonia in infancy; Hypotonia, early; Infantile hypotonia
+
+Frequency: Occasional
+
+Symptoms: Limb apraxia
+Difficulty in performing the correct execution of limbs movements in absence of motor impairment.
+
+Frequency: Frequent
+
+Symptoms: Motor stereotypy
+A stereotypy is a repetitive, simple movement that can be voluntarily suppressed. Stereotypies are typically simple back-and-forth movements such as waving of flapping the hands or arms, and they do not involve complex sequences or movement fragments. Movement is often but not always rhythmic and may involve fingers, wrists, or more proximal portions of the upper extremity. The lower extremity is not typically involved. Stereotypies are more commonly bilateral than unilateral.
+
+Synonyms:Repetitive movements; Repetitive or self-injurious behavior; Stereotyped behavior; Stereotyped, repetitive behavior; Stereotyped, repetitive behaviour; Stereotypic behavior; Stereotypic behaviors; Stereotypical motor behavior; Stereotypical motor behaviors
+
+Frequency: Very frequent
+
+Symptoms: Primary microcephaly
+Head circumference below 2 standard deviations below the mean for age and gender at birth.
+
+Synonyms: Congenital decreased head circumference; Congenital microcephaly; Congenital small skull; Decreased head circumference present at birth; Microcephaly present at birth; Small cranium present at birth
+
+Frequency: Uncommon
+
+Symptoms: Progressive microcephaly
+Progressive microcephaly is diagnosed when the head circumference falls progressively behind age- and gender-dependent norms.
+
+Synonyms: Microcephaly, postnatal, progressive; Microcephaly, progressive; Progressively abnormally small cranium; Progressively abnormally small skull
+
+Frequency: Very frequent
+
+Symptoms: Scoliosis
+The presence of an abnormal lateral curvature of the spine.
+
+Frequency: Occasional
+
+Symptoms: Seizure
+A seizure is an intermittent abnormality of nervous system physiology characterised by a transient occurrence of signs and/or symptoms due to abnormal excessive or synchronous neuronal activity in the brain.
+
+Synonyms:Epileptic seizure; Seizures
+
+Frequency: Frequent
+Symptoms: Skeletal muscle atrophy
+The presence of skeletal muscular atrophy (which is also known as amyotrophy).
+
+Synonyms:Amyotrophy; Amyotrophy involving the extremities; Muscle atrophy; Muscle atrophy, neurogenic; Muscle degeneration; Muscle hypotrophy; Muscle wasting; Muscular atrophy; Neurogenic muscle atrophy; Neurogenic muscle atrophy, especially in the lower limbs; Neurogenic muscular atrophy
+
+Frequency: Frequent
+
+Symptoms: Sleep disturbance
+An abnormality of sleep including such phenomena as 1) insomnia/hypersomnia, 2) non-restorative sleep, 3) sleep schedule disorder, 4) excessive daytime somnolence, 5) sleep apnea, and 6) restlessness.
+
+Synonyms:Difficulty sleeping; Sleep disturbances; Sleep dysfunction; Trouble sleeping
+
+Frequency: Occasional
+
+
+Symptoms: Stereotypical hand wringing
+Habitual clasping and squeezing of the hands.
+
+Frequency: Very frequent
+
+Diagnostic Journey
+On average, it takes more than six years to receive an accurate rare disease diagnosis. Many primary care providers (PCPs) may not be familiar with rare diseases, and you may need to see multiple specialists to reach the correct diagnosis. However, advocating for yourself with your healthcare team may help speed your time to diagnosis. To combat common challenges, be prepared:
+Find disease-specific information to discuss with your healthcare providers.
+Ask for diagnostic tests.
+Request referrals to specialists.
+Knowing where to start your diagnostic journey and how to navigate the next steps are critical to speeding your time to diagnosis
+
+
+Your Diagnostic Team
+How can a diagnostic team help?
+Establishing care with a dedicated primary care provider (PCP) is an important early step in your rare disease journey. A PCP can help improve care and shorten the time to diagnosis by providing referrals to the appropriate specialists. These specialists, with advanced training in different body systems or types of diseases, can offer the specialized diagnostic procedures you need.
+
+Use this tool (https://www.medicare.gov/care-compare/?providerType=Physician) by Medicare to find a PCP in your area by inputting your location and keyword "Primary Care Provider."
+
+A PCP that specializes in the care of children is called a pediatrician. Use this tool (https://www.healthychildren.org/English/tips-tools/find-pediatrician/Pages/Pediatrician-Referral-Service.aspx)  by the American Academy of Pediatrics to find a pediatrician in your area  by inputting your location.
+
+
+Genetic specialists focus on diagnosing, treating, and managing patients with genetic changes that affect a person’s health. Specialists known as genetic counselors and geneticists commonly interview patients about family history and discuss genetic risks to diagnose genetic conditions. They may also use genetic testing to determine a diagnosis. Genetic counselors often specialize in certain types of genetic diseases like cancer, or different life stages like prenatal or pediatric genetic counseling.
+
+You may be able to find a genetic specialist  in your area (https://clinics.acmg.net/) (directory by the American College of Medical Genetics and Genomics).
+
+
+Neurology specialists focus on diagnosing, treating, and managing diseases that affect the nervous system, including the brain, spinal cord, and nerves. Neurologists often use imaging studies, physical examination, or cognitive assessments to diagnose neurological diseases.
+
+You may be able to find a neurologist (https://www.medicare.gov/care-compare/?providerType=Physician) in your area by inputting your location and keyword "Neurology" (directory by Medicare).
+
+Multidisciplinary Care Centers
+Is it time to find a multidisciplinary care center?
+
+If you've visited your PCP, met with specialists, and undergone the recommended tests, but still do not have a confirmed diagnosis, it may be time to visit a multidisciplinary care center. Multidisciplinary care centers are usually teaching, university, or research hospitals that have teams of medical experts and specialists working together in the same location. This means a wide range of diagnostic tests and clinical knowledge are available at one facility, which can help increase communication and collaboration among your care team. The additional resources often available at multidisciplinary centers may help speed the time to diagnosis for rare diseases.
+Find a multidisciplinary care center in your area (https://www.medicare.gov/care-compare/?providerType=Hospital).
+
+
+Rare Disease Experts
+How can you find a rare disease expert?
+If a diagnosis remains unknown despite extensive efforts by your PCP and specialists, it can be challenging to know what kind of expert you may need or where to find one. A rare disease expert is a care provider that has knowledge or training on specific disease(s), but there may only be a few experts in your state, region, or country. Rare disease experts may work at large research or teaching hospitals. In complex cases, coordinating with a network of experts can help your care provider find the right diagnosis. 
+Contact a GARD Information Specialist for help finding an expert (https://rarediseases.info.nih.gov/contact).
+
+You can ask your care providers for help finding an expert or use directory tools to search for experts near you. The following organization(s) may maintain a list of experts or expert centers for people living with Rett syndrome:
+International Rett Syndrome Foundation (https://www.rettsyndrome.org/for-families/rett-syndrome-clinics/)
+Rett Syndrome Research Trust (https://reverserett.org/for-all-families/#stack-20210214-213613)
+
+Find Your Community
+How Can Patient Organizations Help?
+Patient organizations can help patients and families connect. They build public awareness of the disease and are a driving force behind research to improve patients' lives. They may offer online and in-person resources to help people live well with their disease. Many collaborate with medical experts and researchers.
+
+Services of patient organizations differ, but may include:
+Ways to connect to others and share personal stories
+Easy-to-read information
+Up-to-date treatment and research information
+Patient registries
+Lists of specialists or specialty centers
+Financial aid and travel resources
+
+Please note: GARD provides organizations for informational purposes only and not as an endorsement of their services. Please contact an organization directly if you have questions about the information or resources it provides.
+
+View GARD's criteria for including patient organizations (https://rarediseases.info.nih.gov/about), which can be found under the FAQs on our About page. Request an update or to have your organization added to GARD (https://contact.rarediseases.info.nih.gov/Gard/s/patient-organization?language=en_US).
+
+
+find a provider near you: https://www.medicare.gov/care-compare/?providerType=Hospital

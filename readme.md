@@ -27,6 +27,15 @@
     ```
 
 5. **Run the project:**
+    Rename config copy.ini and fill the keys for: 
+
+    OpenAI
+
+    PineCone
+
+    Tavily
+
+    See below for the URL links to go their portal and obtain keys
     ```sh
     python __init__.py
     ```
@@ -36,13 +45,16 @@
     deactivate
     ```
 
-# Basic chatbot
-it is in basic.py file
+# Links
+## Pinecone
+https://docs.pinecone.io/guides/get-started/overview
 
-# Tools Chatbot
-Chatbot which can use tools is in tools.py
+## OpenAI
+https://platform.openai.com/docs/overview
 
+## Tavily
 
-# Read more 
 https://app.tavily.com/home?code=htf-dx2MTxCv2xWBJJDO38De2tyo2VbpCuRgruQ413U9n&state=eyJyZXR1cm5UbyI6Ii9ob21lIn0
+
+## Langgraph
 https://langchain-ai.github.io/langgraph/tutorials/introduction/#part-1-build-a-basic-chatbot
