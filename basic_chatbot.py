@@ -1,13 +1,10 @@
 # Basic Chatbot
-import configparser
-import json
 from langchain_openai import ChatOpenAI
 from typing import Annotated
 from typing_extensions import TypedDict
 from langgraph.graph import StateGraph, START, END
 from langgraph.graph.message import add_messages
 from langchain.schema import HumanMessage, SystemMessage, BaseMessage
-from langchain_core.messages import ToolMessage
 from langchain_community.tools.tavily_search import TavilySearchResults
 import os
 

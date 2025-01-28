@@ -2,7 +2,8 @@ import time
 import pandas as pd
 from langchain_openai import ChatOpenAI
 # from langchain_anthropic import ChatAnthropic
-from util import get_openai_keys, get_pinecone_keys
+from util import get_anthropic_keys, get_deepseek_keys, get_openai_keys, get_pinecone_keys
+from langchain_anthropic import ChatAnthropic
 from langchain.schema import HumanMessage, SystemMessage, AIMessage
 from langchain_core.prompts import PromptTemplate
 from langchain.chains.base import Chain
@@ -22,7 +23,9 @@ model = ChatOpenAI(
     openai_api_key=get_openai_keys()
 )
 
-# model = ChatAnthropic(model="claude-3-5-sonnet-20240620")
+# model = ChatAnthropic(
+#     model="claude-3-5-sonnet-20240620", 
+#     api_key=get_anthropic_keys())
 
 def call_llm():
     messages = [
@@ -40,7 +43,6 @@ def call_with_prompt():
 
 def setup_prompt(concept=""):
     template = """ You are an expert of python.  explain the concept of {concept}"""
-    #  template = """ You are an expert of python, but never explain 'inheritance'. Just say, sorry i cannot talk about 'inheritance'.  exaplin the concept of {concept}"""
     prompt = PromptTemplate(
         input_variables=["concept"],
         template=template
@@ -49,15 +51,10 @@ def setup_prompt(concept=""):
 
 def call_chain():
     prompt = setup_prompt()
-    concept = "inheritance"  # inheritance
+    concept = "inheritance"  
     chain = prompt | model | StrOutputParser()
     response = chain.invoke({'concept': concept})
     print("Response from OpenAI:", response)
-
-# example of creating a summary of an concept
-# Alter the result from the first call
-# and use it as input to the second call
-# This is a simple example of chaining two calls
 
 def call_composed_chain():
 
@@ -69,6 +66,7 @@ def call_composed_chain():
 
     composed_chain = {
         'concept2': chain} | prompt_analyzer | model | StrOutputParser()
+    
     response = composed_chain.invoke({'concept': 'inheritance'})
     print("Response from Composed Chain:", response)
 
@@ -91,14 +89,13 @@ def add_document_to_pinecone():
 
     print("Document added to Pinecone index")
 
-
 def pinecone_sample():
     text_splitter = RecursiveCharacterTextSplitter( chunk_size=1000, chunk_overlap=10)
     #read the rett_text into a string
     with open("Rett syndrome.txt", "r") as file:
         rett_text = file.read()
     document = text_splitter.create_documents([rett_text]) #chunk the document into smaller pieces
-    #print(document)
+    # print(document)
     # convert the document into embeddings
     embeddings = OpenAIEmbeddings(openai_api_key=get_openai_keys())
     # embedded_document = embeddings.embed_documents(rett_text)
@@ -142,7 +139,6 @@ def pinecone_sample():
     print("\n\033[91mResponse from OpenAI Expert:\n\033[0m")
     print( response.content)
 
-
 def search_pincone():
     index_name = "langchain-tutorial-index"
     embeddings = OpenAIEmbeddings(openai_api_key=get_openai_keys())
@@ -177,12 +173,11 @@ def search_pincone():
     print("\n\033[91mResponse from OpenAI Expert:\n\033[0m")
     print( response.content)
 
-
 if __name__ == '__main__':
-    # call_llm()
-    # call_with_prompt()
+    call_llm()
+    #call_with_prompt()
     # call_chain()
-    # call_composed_chain()
-    # pinecone_sample()
+    #call_composed_chain()
+    #pinecone_sample()
     #add_document_to_pinecone()
-    search_pincone()
+    # search_pincone()
