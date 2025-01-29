@@ -7,8 +7,8 @@ from langgraph.graph.message import add_messages
 from langchain.schema import HumanMessage, SystemMessage, BaseMessage
 from langchain_community.tools.tavily_search import TavilySearchResults
 import os
-
 from util import get_openai_keys, get_tavily_api_keys
+from IPython.display import Image, display
 
 
 llm = ChatOpenAI(
@@ -16,20 +16,11 @@ llm = ChatOpenAI(
     temperature=0.7,
     openai_api_key=get_openai_keys()
 )
-
-os.environ["TAVILY_API_KEY"] = get_tavily_api_keys()
-tool = TavilySearchResults(max_results=2)
-tools = [tool]
-llm_with_tools = llm.bind_tools(tools)
-
-
 class State(TypedDict):
     messages: Annotated[list[BaseMessage], add_messages]
 
-
 def chatbot(state: State):
     return {"messages": [llm.invoke(state["messages"])]}
-
 
 def stream_graph_updates(user_input: BaseMessage, graph):
     for event in graph.stream({"messages": [{"role": "user", "content": user_input}]}):
@@ -44,6 +35,8 @@ def main():
     graph_builder.add_edge(START, "chatbot")
     graph_builder.add_edge("chatbot", END)
     graph = graph_builder.compile()
+    image = Image(graph.get_graph().draw_mermaid_png())
+    save_image(image)
     print("Welcome to the basic chatbot! Type 'quit' to exit.")
     while True:
         try:
@@ -55,6 +48,11 @@ def main():
         except Exception as e:
             print("Error:", e)
             break
+
+def save_image(image):
+    image_path = "graph_image.png"
+    with open(image_path, "wb") as f:
+        f.write(image.data)
 
 
 if __name__ == '__main__':

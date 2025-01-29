@@ -16,12 +16,6 @@ from langgraph.prebuilt import ToolNode, tools_condition
 
 from util import get_openai_keys, get_tavily_api_keys
 
-# https://app.tavily.com/home?code=htf-dx2MTxCv2xWBJJDO38De2tyo2VbpCuRgruQ413U9n&state=eyJyZXR1cm5UbyI6Ii9ob21lIn0
-# https://langchain-ai.github.io/langgraph/tutorials/introduction/#part-1-build-a-basic-chatbot
-# pip install langchain-openai
-# pip install langgraph
-# pip install langchain
-
 
 llm = ChatOpenAI(
     model_name="gpt-4o",
