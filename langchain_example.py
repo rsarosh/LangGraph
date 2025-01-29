@@ -17,6 +17,7 @@ from langchain.chains.query_constructor.schema import AttributeInfo
 from langchain.retrievers.self_query.base import SelfQueryRetriever
 from uuid import uuid4
 
+
 model = ChatOpenAI(
     model_name="gpt-4o-mini",
     temperature=0.7,
@@ -24,8 +25,9 @@ model = ChatOpenAI(
 )
 
 # model = ChatAnthropic(
-#     model="claude-3-5-sonnet-20240620", 
+#     model="claude-3-5-sonnet-20240620",
 #     api_key=get_anthropic_keys())
+
 
 def call_llm():
     messages = [
@@ -35,11 +37,13 @@ def call_llm():
     response = model.invoke(messages)
     print("Response from OpenAI:", response)
 
+
 def call_with_prompt():
     prompt = setup_prompt()
     concept = "pydantic"  # inheritance
     response = model.invoke(prompt.format(concept=concept))
     print("Response from OpenAI:", response)
+
 
 def setup_prompt(concept=""):
     template = """ You are an expert of python.  explain the concept of {concept}"""
@@ -49,12 +53,14 @@ def setup_prompt(concept=""):
     )
     return prompt
 
+
 def call_chain():
     prompt = setup_prompt()
-    concept = "inheritance"  
+    concept = "inheritance"
     chain = prompt | model | StrOutputParser()
     response = chain.invoke({'concept': concept})
     print("Response from OpenAI:", response)
+
 
 def call_composed_chain():
 
@@ -66,21 +72,25 @@ def call_composed_chain():
 
     composed_chain = {
         'concept2': chain} | prompt_analyzer | model | StrOutputParser()
-    
+
     response = composed_chain.invoke({'concept': 'inheritance'})
     print("Response from Composed Chain:", response)
 
+
 def add_document_to_pinecone():
-    text_splitter = RecursiveCharacterTextSplitter( chunk_size=1000, chunk_overlap=10)
+    text_splitter = RecursiveCharacterTextSplitter(
+        chunk_size=1000, chunk_overlap=10)
     with open("Cystic-fibrosis.txt", "r") as file:
         doc_text = file.read()
-    document = text_splitter.create_documents([doc_text]) #chunk the document into smaller pieces
+    # chunk the document into smaller pieces
+    document = text_splitter.create_documents([doc_text])
     embeddings = OpenAIEmbeddings(openai_api_key=get_openai_keys())
     # create a pinecone index
-    pc = Pinecone ( api_key=get_pinecone_keys())
+    pc = Pinecone(api_key=get_pinecone_keys())
     index_name = "langchain-tutorial-index"
     if index_name not in pc.list_indexes().names():
-        index = pc.create_index(name = index_name, dimension = 1536 , metric = "cosine" , spec=ServerlessSpec(cloud="aws", region="us-east-1"))
+        index = pc.create_index(name=index_name, dimension=1536, metric="cosine",
+                                spec=ServerlessSpec(cloud="aws", region="us-east-1"))
     else:
         index = pc.Index(index_name)
         vector_store = PineconeVectorStore(index=index, embedding=embeddings)
@@ -89,26 +99,29 @@ def add_document_to_pinecone():
 
     print("Document added to Pinecone index")
 
+
 def pinecone_sample():
-    text_splitter = RecursiveCharacterTextSplitter( chunk_size=1000, chunk_overlap=10)
-    #read the rett_text into a string
+    text_splitter = RecursiveCharacterTextSplitter(
+        chunk_size=1000, chunk_overlap=10)
+    # read the rett_text into a string
     with open("Rett syndrome.txt", "r") as file:
         rett_text = file.read()
-    document = text_splitter.create_documents([rett_text]) #chunk the document into smaller pieces
+    # chunk the document into smaller pieces
+    document = text_splitter.create_documents([rett_text])
     # print(document)
     # convert the document into embeddings
     embeddings = OpenAIEmbeddings(openai_api_key=get_openai_keys())
     # embedded_document = embeddings.embed_documents(rett_text)
     # create a pinecone index
-    pc = Pinecone ( api_key=get_pinecone_keys())
+    pc = Pinecone(api_key=get_pinecone_keys())
     index_name = "langchain-tutorial-index"
     if index_name not in pc.list_indexes().names():
-        index = pc.create_index(name = index_name, dimension = 1536 , metric = "cosine" , spec=ServerlessSpec(cloud="aws", region="us-east-1"))
+        index = pc.create_index(name=index_name, dimension=1536, metric="cosine",
+                                spec=ServerlessSpec(cloud="aws", region="us-east-1"))
         vector_store = PineconeVectorStore(index=index, embedding=embeddings)
         uuids = [str(uuid4()) for _ in range(len(document))]
         vector_store.add_documents(documents=document, id=uuids)
 
-    
     # connect to a pinecone index
     index = pc.Index(index_name)
     vector_store = PineconeVectorStore(index=index, embedding=embeddings)
@@ -118,31 +131,34 @@ def pinecone_sample():
     )
     query_results = []
     for res in results:
-        #print(f"* {res.page_content} [{res.metadata}]")
+        # print(f"* {res.page_content} [{res.metadata}]")
         query_results.append(res.page_content)
 
-    #flatten the list
+    # flatten the list
     query_result_str = ' '.join(query_results)
     messages = [
         HumanMessage(content=query_result_str),
-        SystemMessage(content="You only summarize the message, don't add any extra information."),
+        SystemMessage(
+            content="You only summarize the message, don't add any extra information."),
     ]
     response = model.invoke(messages)
     print("\n\033[92mResponse from Just Document:\n\033[0m")
-    print( response.content)
+    print(response.content)
 
     messages = [
         HumanMessage(content=query_result_str),
-        SystemMessage(content="You are an expert in rare diseas, add your extra comments to the information."),
+        SystemMessage(
+            content="You are an expert in rare diseas, add your extra comments to the information."),
     ]
     response = model.invoke(messages)
     print("\n\033[91mResponse from OpenAI Expert:\n\033[0m")
-    print( response.content)
+    print(response.content)
+
 
 def search_pincone():
     index_name = "langchain-tutorial-index"
     embeddings = OpenAIEmbeddings(openai_api_key=get_openai_keys())
-    pc = Pinecone ( api_key=get_pinecone_keys())
+    pc = Pinecone(api_key=get_pinecone_keys())
     index = pc.Index(index_name)
     vector_store = PineconeVectorStore(index=index, embedding=embeddings)
     query = input("Enter your query: ")
@@ -152,32 +168,35 @@ def search_pincone():
     )
     query_results = []
     for res in results:
-        #print(f"* {res.page_content} [{res.metadata}]")
+        # print(f"* {res.page_content} [{res.metadata}]")
         query_results.append(res.page_content)
 
-    #flatten the list
+    # flatten the list
     query_result_str = ' '.join(query_results)
     messages = [
         HumanMessage(content=query_result_str),
-        SystemMessage(content="You only summarize the message, don't add any extra information."),
+        SystemMessage(
+            content="You only summarize the message, don't add any extra information."),
     ]
     response = model.invoke(messages)
     print("\n\033[92mResponse from Document:\n\033[0m")
-    print( response.content)
+    print(response.content)
 
     messages = [
         HumanMessage(content=query_result_str),
-        SystemMessage(content="You are an expert in rare diseas, add your extra comments to the information."),
+        SystemMessage(
+            content="You are an expert in rare diseas, add your extra comments to the information."),
     ]
     response = model.invoke(messages)
     print("\n\033[91mResponse from OpenAI Expert:\n\033[0m")
-    print( response.content)
+    print(response.content)
+
 
 if __name__ == '__main__':
     call_llm()
-    #call_with_prompt()
+    # call_with_prompt()
     # call_chain()
-    #call_composed_chain()
-    #pinecone_sample()
-    #add_document_to_pinecone()
+    # call_composed_chain()
+    # pinecone_sample()
+    # add_document_to_pinecone()
     # search_pincone()
