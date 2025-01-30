@@ -14,14 +14,9 @@ from langgraph.checkpoint.memory import MemorySaver
 from langgraph.types import Command, interrupt
 from langgraph.prebuilt import ToolNode, tools_condition
 
-from util import get_openai_keys, get_tavily_api_keys
+from util import create_and_save_gaph_image, get_openai_keys, get_tavily_api_keys
 
-
-llm = ChatOpenAI(
-    model_name="gpt-4o",
-    temperature=0.7,
-    openai_api_key=get_openai_keys()
-)
+llm = ChatOpenAI(model_name="gpt-4o", temperature=0.7, openai_api_key=get_openai_keys())
 
 # define a new tool that requests human assistance and then add it to the list of tools
 
@@ -88,7 +83,7 @@ def main():
     # Any time a tool is called, we return to the chatbot to decide the next step
     graph_builder.add_edge("tools", "chatbot")
     graph = graph_builder.compile(checkpointer=memory)
-
+    create_and_save_gaph_image(graph, "human_in_loop.png")
     while True:
         try:
             # I need some expert guidance for building an AI agent. Could you request assistance for me?
@@ -119,5 +114,5 @@ def stream_graph_human_response(graph):
             event["messages"][-1].pretty_print()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

@@ -10,15 +10,9 @@ from langchain.schema import HumanMessage, SystemMessage, BaseMessage
 from langchain_core.messages import ToolMessage
 from langchain_community.tools.tavily_search import TavilySearchResults
 import os
+from util import create_and_save_gaph_image, get_openai_keys, get_tavily_api_keys
 
-from util import get_openai_keys, get_tavily_api_keys
-
-
-llm = ChatOpenAI(
-    model_name="gpt-4o",
-    temperature=0.7,
-    openai_api_key=get_openai_keys()
-)
+llm = ChatOpenAI(model_name="gpt-4o", temperature=0.7, openai_api_key=get_openai_keys())
 
 os.environ["TAVILY_API_KEY"] = get_tavily_api_keys()
 tool = TavilySearchResults(max_results=2)
@@ -82,8 +76,7 @@ def route_tools(
     elif messages := state.get("messages", []):
         ai_message = messages[-1]
     else:
-        raise ValueError(
-            f"No messages found in input state to tool_edge: {state}")
+        raise ValueError(f"No messages found in input state to tool_edge: {state}")
     if hasattr(ai_message, "tool_calls") and len(ai_message.tool_calls) > 0:
         return "tools"
     return END
@@ -93,7 +86,6 @@ def main():
 
     graph_builder = StateGraph(State)
     tool_node = BasicToolNode(tools=[tool])
-
     graph_builder.add_node("tools", tool_node)
     graph_builder.add_node("chatbot", chatbot)
     graph_builder.add_edge(START, "chatbot")
@@ -114,10 +106,10 @@ def main():
     # Any time a tool is called, we return to the chatbot to decide the next step
     graph_builder.add_edge("tools", "chatbot")
     graph = graph_builder.compile()
-
+    create_and_save_gaph_image(graph, "tools_chatbot.png")
     while True:
         try:
-            # Tell me about BA company and its Stock and its price
+            # Tell me about stock: BA and its Stock and its price
             user_input = input("User: ")
             if user_input.lower() in ["quit", "exit", "q"]:
                 print("Goodbye!")
@@ -128,5 +120,5 @@ def main():
             break
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

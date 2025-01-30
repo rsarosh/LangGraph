@@ -10,20 +10,10 @@ from langchain_core.messages import ToolMessage
 from langchain_community.tools.tavily_search import TavilySearchResults
 import os
 from langgraph.checkpoint.memory import MemorySaver
-
 from util import get_openai_keys, get_tavily_api_keys
 
-# https://app.tavily.com/home?code=htf-dx2MTxCv2xWBJJDO38De2tyo2VbpCuRgruQ413U9n&state=eyJyZXR1cm5UbyI6Ii9ob21lIn0
-# https://langchain-ai.github.io/langgraph/tutorials/introduction/#part-1-build-a-basic-chatbot
-# pip install langchain-openai
-# pip install langgraph
-# pip install langchain
 
-llm = ChatOpenAI(
-    model_name="gpt-4o",
-    temperature=0.7,
-    openai_api_key=get_openai_keys()
-)
+llm = ChatOpenAI(model_name="gpt-4o", temperature=0.7, openai_api_key=get_openai_keys())
 
 os.environ["TAVILY_API_KEY"] = get_tavily_api_keys()
 tool = TavilySearchResults(max_results=2)
@@ -74,8 +64,11 @@ def chatbot(state: State):
 
 
 def stream_graph_updates(user_input: BaseMessage, graph):
-    events = graph.stream({"messages": [
-                          {"role": "user", "content": user_input}]}, config, stream_mode="values",)
+    events = graph.stream(
+        {"messages": [{"role": "user", "content": user_input}]},
+        config,
+        stream_mode="values",
+    )
     for event in events:
         event["messages"][-1].pretty_print()
 
@@ -87,7 +80,9 @@ def addition(state: State):
             number = float(messages[-1].content)
             return {"messages": [SystemMessage(content=f"The result is {5 + number}.")]}
         except ValueError:
-            return {"messages": [SystemMessage(content="Please provide a valid number.")]}
+            return {
+                "messages": [SystemMessage(content="Please provide a valid number.")]
+            }
     else:
         return {"messages": [SystemMessage(content="I don't understand.")]}
 
@@ -99,7 +94,9 @@ def multiply(state: State):
             number = float(messages[-1].content)
             return {"messages": [SystemMessage(content=f"The result is {5 * number}.")]}
         except ValueError:
-            return {"messages": [SystemMessage(content="Please provide a valid number.")]}
+            return {
+                "messages": [SystemMessage(content="Please provide a valid number.")]
+            }
     else:
         return {"messages": [SystemMessage(content="I don't understand.")]}
 
@@ -116,8 +113,7 @@ def route_tools(
     elif messages := state.get("messages", []):
         ai_message = messages[-1]
     else:
-        raise ValueError(
-            f"No messages found in input state to tool_edge: {state}")
+        raise ValueError(f"No messages found in input state to tool_edge: {state}")
     if hasattr(ai_message, "tool_calls") and len(ai_message.tool_calls) > 0:
         return "tools"
     return END
@@ -166,5 +162,5 @@ def main():
             break
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

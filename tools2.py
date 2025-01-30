@@ -13,11 +13,7 @@ import os
 from langgraph.prebuilt import ToolNode, tools_condition
 from util import get_openai_keys, get_tavily_api_keys
 
-llm = ChatOpenAI(
-    model_name="gpt-4o",
-    temperature=0.7,
-    openai_api_key=get_openai_keys()
-)
+llm = ChatOpenAI(model_name="gpt-4o", temperature=0.7, openai_api_key=get_openai_keys())
 
 os.environ["TAVILY_API_KEY"] = get_tavily_api_keys()
 tool = TavilySearchResults(max_results=2)
@@ -58,7 +54,7 @@ def main():
         try:
             # Tell me about BA company and its Stock and its price
             # user_input =  input("User: ")
-            user_input = 'Tell me about BA company and its Stock and its price '
+            user_input = "Tell me about stock BA and its Stock and its price "
             if user_input.lower() in ["quit", "exit", "q"]:
                 print("Goodbye!")
                 break
@@ -69,5 +65,5 @@ def main():
             break
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

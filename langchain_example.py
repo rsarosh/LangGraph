@@ -131,9 +131,7 @@ def pinecone_sample():
     )
     query_results = []
     for res in results:
-        # print(f"* {res.page_content} [{res.metadata}]")
         query_results.append(res.page_content)
-
     # flatten the list
     query_result_str = ' '.join(query_results)
     messages = [
