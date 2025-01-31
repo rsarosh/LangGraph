@@ -1,8 +1,8 @@
-import configparser
-import json
+# https://langchain-ai.github.io/langgraph/how-tos/human_in_the_loop/wait-user-input/#agent
 from langchain_openai import ChatOpenAI
 from typing import Annotated
 from langchain_core.tools import tool
+from openai import BaseModel
 from typing_extensions import TypedDict
 from langgraph.graph import StateGraph, START, END
 from langgraph.graph.message import add_messages
@@ -12,68 +12,95 @@ from langchain_community.tools.tavily_search import TavilySearchResults
 import os
 from langgraph.checkpoint.memory import MemorySaver
 from langgraph.types import Command, interrupt
-from langgraph.prebuilt import ToolNode, tools_condition
-from util import create_and_save_gaph_image, get_openai_keys, get_tavily_api_keys
+from langgraph.prebuilt import ToolNode
+from util import get_openai_keys, get_tavily_api_keys
 
-llm = ChatOpenAI(model_name="gpt-4o", temperature=0.7, openai_api_key=get_openai_keys())
+model = ChatOpenAI(model_name="gpt-4o", temperature=0.7, openai_api_key=get_openai_keys())
 
 
-@tool
-def human_assistance(query: str) -> str:
-    """Request assistance from a human."""
-    print("\n\033[92mRequesting human assistance, going to wait here till get a resume call for:\033[0m", query)
-    # This intrupt will send the query to the client
-    human_response = interrupt({"prompt": query})
-    print("\n\033[91mHuman response:\033[0m", human_response)
-    return human_response["data"]
-
-os.environ["TAVILY_API_KEY"] = get_tavily_api_keys()
-tool = TavilySearchResults(max_results=2)
-tools = [tool, human_assistance]
-llm_with_tools = llm.bind_tools(tools)
-
-memory = MemorySaver()
-
+# We are going "bind" all tools to the model
+# We have the ACTUAL tools from above, but we also need a mock tool to ask a human
+# Since `bind_tools` takes in tools but also just tool definitions,
+# We can define a tool definition for `ask_human`
+class AskHuman(BaseModel):
+    """Ask the human a question"""
+    question: str
 
 class State(TypedDict):
     messages: Annotated[list[BaseMessage], add_messages]
 
+# Define the function that determines whether to continue or not
+def should_continue(state):
+    messages = state["messages"]
+    last_message = messages[-1]
+    # If there is no function call, then we finish
+    if not last_message.tool_calls:
+        return END
+    # If tool call is asking Human, we return that node
+    # You could also add logic here to let some system know that there's something that requires Human input
+    # For example, send a slack message, etc
+    elif last_message.tool_calls[0]["name"] == "AskHuman":
+        return "ask_human"
+    # Otherwise if there is, we continue
+    else:
+        return "action"
 
-def chatbot(state: State):
-    message = llm_with_tools.invoke(state["messages"])
-    # Because we will be interrupting during tool execution,
-    # we disable parallel tool calling to avoid repeating any
-    # tool invocations when we resume.
-    assert len(message.tool_calls) <= 1
-    return {"messages": [message]}
+# Define the function that calls the model
+def call_model(state):
+    messages = state["messages"]
+    response = model.invoke(messages)
+    # We return a list, because this will get added to the existing list
+    return {"messages": [response]}
+
+# We define a fake node to ask the human
+
+def ask_human(state):
+    tool_call_id = state["messages"][-1].tool_calls[0]["id"]
+    #In client provide the following input to get the response from the human
+    # {"data": "We, the experts are here to help! We'd recommend you check out LangGraph to build your agent. It's much more reliable and extensible than simple autonomous agents."}
+    content = interrupt(state["messages"][-1].content)
+    tool_message = [{"tool_call_id": tool_call_id, "type": "tool", "content": content}]
+    return {"messages": tool_message}
 
 
 config = {"configurable": {"thread_id": "1"}}
+
+@tool
+def search(query: str):
+    """Call to surf the web."""
+    # This is a placeholder for the actual implementation
+    # Don't let the LLM know this though 😊
+    return f"I looked up: {query}. Result: It's sunny in {query}, but you better look out if you're a Gemini 😈."
+
 
  # To Test type this prompt in the message:
  # I need some expert guidance for building an AI agent. Could you request assistance for me?
  # in response Type this for human assistance:
  #{"data": "We, the experts are here to help! We'd recommend you check out LangGraph to build your agent. It's much more reliable and extensible than simple autonomous agents."}
-def human_in_loop():
-    graph_builder = StateGraph(State)
-    tool_node = ToolNode(tools=tools)
-    graph_builder.add_node("tools", tool_node)
-    graph_builder.add_node("chatbot", chatbot)
-    graph_builder.add_edge(START, "chatbot")
-    graph_builder.add_edge("chatbot", END)
-    graph_builder.add_conditional_edges(
-        "chatbot",
-        tools_condition,
-    )
-    graph_builder.add_edge("tools", "chatbot")
-    graph = graph_builder.compile(checkpointer=memory)
-    return graph
-     
 
 
+tools = [search]
+tool_node = ToolNode(tools)
+model = model.bind_tools(tools + [AskHuman])
+memory = MemorySaver()
+
+workflow = StateGraph(State)
+workflow.add_node("agent", call_model)
+workflow.add_node("action", tool_node)
+workflow.add_node("ask_human", ask_human)
+workflow.add_edge(START, "agent")
 
 
+workflow.add_conditional_edges(
+        # First, we define the start node. We use `agent`.
+        # This means these are the edges taken after the `agent` node is called.
+        "agent",
+        # Next, we pass in the function that will determine which node is called next.
+        should_continue,
+)
+workflow.add_edge("action", "agent")
+workflow.add_edge("ask_human", "agent")
+app = workflow.compile(checkpointer=memory)
 
 
-if __name__ == "__main__":
-    human_in_loop()
+ 

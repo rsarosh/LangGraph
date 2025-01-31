@@ -61,10 +61,23 @@ https://langchain-ai.github.io/langgraph/tutorials/introduction/#part-1-build-a-
 
 
 ## Learn More
-# https://langchain-ai.github.io/langgraph/tutorials/introduction/#part-1-build-a-basic-chatbot
+https://langchain-ai.github.io/langgraph/tutorials/introduction/#part-1-build-a-basic-chatbot
 
-# for human in loop
-pip3 install
+# For human in loop
+```pip3 install langgraph-cli```
 
-to run 
-langgraph dev
+```pip install lagngraph-sdk```
+
+
+complete the langgraph.json file as per your project
+
+human_in_loop_deployed.py is the file to test human in loop scenarios.
+
+## To run 
+Make sure docker is install. 
+
+```langgraph dev```
+
+to deploy basic chatbot, update the langgraph.json with this line
+    "basic_chatbot": "./basic_chatbot_deployed.py:basic_chatbot_deployed"
+

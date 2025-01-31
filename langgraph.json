@@ -1,7 +1,7 @@
 {
   "dockerfile_lines": [],
   "graphs": {
-    "agent": "./human_in_loop_deployed.py:human_in_loop"
+    "agent": "./human_in_loop_deployed.py:app"
   },
   "env": "./config.ini",
   "python_version:": "3.11.3",
