@@ -1,8 +1,6 @@
 config.ini
 __pycache__/util.cpython-311.pyc
 __pycache__/util.cpython-311.pyc
-langraph.json
-langgraph.json
 .langgraph_api/.langgraph_checkpoint.1.pckl
 .langgraph_api/.langgraph_checkpoint.2.pckl
 .langgraph_api/.langgraph_ops.pckl
