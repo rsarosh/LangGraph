@@ -17,22 +17,6 @@ from util import create_and_save_gaph_image, get_openai_keys, get_tavily_api_key
 
 llm = ChatOpenAI(model_name="gpt-4o", temperature=0.7, openai_api_key=get_openai_keys())
 
-def get_human_response(graph):
-    print("\n\033[92mHuman assistance requested :\033[0m")
-    human_response = (
-         
-        "We, the experts are here to help! We'd recommend you check out LangGraph to build your agent."
-        " It's much more reliable and extensible than simple autonomous agents."
-    )
-    print("\n\033[93mShould I move ahead:\033[0m")
-    input()
-    human_command = Command(resume={"data": human_response})
-    # this line should take the control to tool
-    
-    events = graph.stream(human_command, config, stream_mode="values")
-    for event in events:
-        if "messages" in event:
-            event["messages"][-1].pretty_print()
 
 @tool
 def human_assistance(query: str) -> str:
@@ -66,7 +50,10 @@ def chatbot(state: State):
 
 config = {"configurable": {"thread_id": "1"}}
 
-
+ # To Test type this prompt in the message:
+ # I need some expert guidance for building an AI agent. Could you request assistance for me?
+ # in response Type this for human assistance:
+ #{"data": "We, the experts are here to help! We'd recommend you check out LangGraph to build your agent. It's much more reliable and extensible than simple autonomous agents."}
 def human_in_loop():
     graph_builder = StateGraph(State)
     tool_node = ToolNode(tools=tools)
@@ -80,31 +67,9 @@ def human_in_loop():
     )
     graph_builder.add_edge("tools", "chatbot")
     graph = graph_builder.compile(checkpointer=memory)
-    create_and_save_gaph_image(graph, "human_in_loop.png")
- 
-    while True:
-        try:
-            # I need some expert guidance for building an AI agent. Could you request assistance for me?
-            user_input = input("User: ")
-            if user_input.lower() in ["quit", "exit", "q"]:
-                print("Goodbye!")
-                break
-            stream_graph_updates(user_input, graph)
-            get_human_response(graph)
-        except Exception as e:
-            print("Error:", e)
-            break
+    return graph
+     
 
-
-def stream_graph_updates(user_input: BaseMessage, graph):
-    events = graph.stream(
-        {"messages": [{"role": "user", "content": user_input}]},
-        config,
-        stream_mode="values",
-    )
-    for event in events:
-        if "messages" in event:
-            event["messages"][-1].pretty_print()
 
 
 

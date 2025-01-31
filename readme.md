@@ -62,3 +62,9 @@ https://langchain-ai.github.io/langgraph/tutorials/introduction/#part-1-build-a-
 
 ## Learn More
 # https://langchain-ai.github.io/langgraph/tutorials/introduction/#part-1-build-a-basic-chatbot
+
+# for human in loop
+pip3 install
+
+to run 
+langgraph dev
