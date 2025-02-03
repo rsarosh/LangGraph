@@ -1,4 +1,4 @@
-# Basic Chatbot
+# Basic LangGraph with LLM Routing and Tools
 from langchain_openai import ChatOpenAI
 from typing import Annotated
 from typing_extensions import TypedDict
@@ -70,11 +70,11 @@ def main():
         tools_condition,
     )
     graph = graph_builder.compile()
-    create_and_save_gaph_image(graph, filename="intro_to_langgraph_tool.png")
-    print("Welcome to the introduction to langgraph! Type 'quit' to exit.")
+    # create_and_save_gaph_image(graph, filename="intro_to_langgraph_tool.png")
+    print("Welcome to the introduction to langgraph Tools with LLM! Type 'quit' to exit.")
     while True:
         try:
-            user_input = input("User: ")
+            user_input = input("User: ") # Multiply 2 and 3
             if user_input.lower() in ["quit", "exit", "q"]:
                 print("Goodbye!")
                 break

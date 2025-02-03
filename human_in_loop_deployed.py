@@ -1,4 +1,11 @@
 # https://langchain-ai.github.io/langgraph/how-tos/human_in_the_loop/wait-user-input/#agent
+# Human in loop example. This example demonstrates how to create a LangGraph that waits for user input before continuing.
+# Update the Langgraph.json file.
+# To run the code :
+#   Langgraph dev 
+#  Then run the code in Langraph client directory which will act as client for the code.
+
+
 from langchain_openai import ChatOpenAI
 from typing import Annotated
 from langchain_core.tools import tool
@@ -17,11 +24,6 @@ from util import get_openai_keys, get_tavily_api_keys
 
 model = ChatOpenAI(model_name="gpt-4o", temperature=0.7, openai_api_key=get_openai_keys())
 
-
-# We are going "bind" all tools to the model
-# We have the ACTUAL tools from above, but we also need a mock tool to ask a human
-# Since `bind_tools` takes in tools but also just tool definitions,
-# We can define a tool definition for `ask_human`
 class AskHuman(BaseModel):
     """Ask the human a question"""
     question: str
@@ -49,8 +51,7 @@ def should_continue(state):
 def call_model(state):
     messages = state["messages"]
     response = model.invoke(messages)
-    # We return a list, because this will get added to the existing list
-    return {"messages": [response]}
+    return {"messages": [response]} # We return a list, because this will get added to the existing list of messages
 
 # We define a fake node to ask the human
 
@@ -90,7 +91,6 @@ workflow.add_node("action", tool_node)
 workflow.add_node("ask_human", ask_human)
 workflow.add_edge(START, "agent")
 
-
 workflow.add_conditional_edges(
         # First, we define the start node. We use `agent`.
         # This means these are the edges taken after the `agent` node is called.
@@ -101,6 +101,7 @@ workflow.add_conditional_edges(
 workflow.add_edge("action", "agent")
 workflow.add_edge("ask_human", "agent")
 app = workflow.compile(checkpointer=memory)
+
 
 
  

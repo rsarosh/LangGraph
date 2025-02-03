@@ -52,9 +52,9 @@ def main():
 
     while True:
         try:
-            # Tell me about BA company and its Stock and its price
+            # Tell me about BA company and its Stock price
             # user_input =  input("User: ")
-            user_input = "Tell me about stock BA and its Stock and its price "
+            user_input = input("User: ")
             if user_input.lower() in ["quit", "exit", "q"]:
                 print("Goodbye!")
                 break

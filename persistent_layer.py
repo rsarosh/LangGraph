@@ -20,7 +20,7 @@ tool = TavilySearchResults(max_results=2)
 tools = [tool]
 llm_with_tools = llm.bind_tools(tools)
 
-memory = MemorySaver()
+
 
 class BasicToolNode:
     """A node that runs the tools requested in the last AIMessage."""
@@ -87,6 +87,7 @@ def route_tools(
     return END
 
 config = {"configurable": {"thread_id": "1"}}
+memory = MemorySaver()
 
 def main():
 
@@ -111,7 +112,7 @@ def main():
     )
     # Any time a tool is called, we return to the chatbot to decide the next step
     graph_builder.add_edge("tools", "chatbot")
-    # graph = graph_builder.compile(checkpointer=memory)
+    # graph = graph_builder.compile(checkpointer=memory) NOTE: uncomment this line to enable persistence layer
     graph = graph_builder.compile()
 
     while True:

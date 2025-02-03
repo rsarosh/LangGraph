@@ -1,4 +1,6 @@
-# Basic Chatbot
+# Basic Graph Example plain vanila just showing nodes and edges
+# 
+
 from langchain_openai import ChatOpenAI
 from typing import Annotated
 from typing_extensions import TypedDict
@@ -11,20 +13,12 @@ from langchain_core.tools import tool
 import os
 from util import create_and_save_gaph_image, get_openai_keys, get_tavily_api_keys, save_image
 
-
-llm = ChatOpenAI(
-    model_name="gpt-4o",
-    temperature=0.7,
-    openai_api_key=get_openai_keys()
-)
-
-
 class State(TypedDict):
     messages: Annotated[list[BaseMessage], add_messages]
-
  
 def add(state: State):
     """ Adds two numbers together. """
+    print ("user has input: ",state["messages"][-1].content)
     state["messages"].append(HumanMessage(content="This is addition?"))
     return state
     
@@ -51,7 +45,7 @@ def main():
     graph_builder.add_node("add", add)
     graph_builder.add_node("multiply", multiply)
     graph_builder.add_node("devide", devide)
-    # Define Edges
+    # Define Edges FROM --> TO
     graph_builder.add_edge(START, "add")
     graph_builder.add_edge("add", "multiply")
     graph_builder.add_edge("multiply", "devide")
@@ -62,7 +56,7 @@ def main():
     print("Welcome to the introduction to langgraph! Type 'quit' to exit.")
     while True:
         try:
-            user_input = input("User: ")
+            user_input = input("User: ") # Just Type "Testing"
             if user_input.lower() in ["quit", "exit", "q"]:
                 print("Goodbye!")
                 break

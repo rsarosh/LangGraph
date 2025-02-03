@@ -1,4 +1,5 @@
-# Basic Chatbot
+# Basic LangGraph with basic function routing
+# This is a simple example of a LangGraph that uses a router function to route to different functions based on user input.
 from langchain_openai import ChatOpenAI
 from typing import Annotated, Literal
 from typing_extensions import TypedDict
@@ -64,7 +65,7 @@ def stream_graph_updates(user_input: BaseMessage, graph):
 def router_node(state: State) :
     """ Just a router function that routes to different functions. """
     print("This is router node visit")
-    # state["messages"].append(HumanMessage(content="This is router"))
+ 
     return state
 
 def main():
@@ -82,12 +83,12 @@ def main():
     graph_builder.add_edge("devide", END)
     graph_builder.add_conditional_edges("router_node", router_function)
     graph = graph_builder.compile()
-    create_and_save_gaph_image(graph, filename="intro_to_langgraph_router.png")
+    # create_and_save_gaph_image(graph, filename="intro_to_langgraph_router.png")
     print("Welcome to the introduction to langgraph router! Type 'quit' to exit.")
 
     while True:
         try:
-            user_input = input("User: ")
+            user_input = input("User: ") # Just type add, multiply, devide
             if user_input.lower() in ["quit", "exit", "q"]:
                 print("Goodbye!")
                 break
@@ -95,11 +96,6 @@ def main():
         except Exception as e:
             print("Error:", e)
             break
-       
-        # _input: State = State (
-        #     messages = [BaseMessage(content=user_input)]
-        #     )
-        # graph.invoke(input = _input)
-        stream_graph_updates(user_input, graph)
+        stream_graph_updates(user_input, graph) 
 if __name__ == '__main__':
     main()
