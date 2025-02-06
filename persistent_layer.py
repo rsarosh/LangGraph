@@ -21,7 +21,6 @@ tools = [tool]
 llm_with_tools = llm.bind_tools(tools)
 
 
-
 class BasicToolNode:
     """A node that runs the tools requested in the last AIMessage."""
 
@@ -69,6 +68,7 @@ def stream_graph_updates(user_input: BaseMessage, graph):
     for event in events:
         event["messages"][-1].pretty_print()
 
+
 def route_tools(
     state: State,
 ):
@@ -86,8 +86,10 @@ def route_tools(
         return "tools"
     return END
 
+
 config = {"configurable": {"thread_id": "1"}}
 memory = MemorySaver()
+
 
 def main():
 
@@ -112,13 +114,14 @@ def main():
     )
     # Any time a tool is called, we return to the chatbot to decide the next step
     graph_builder.add_edge("tools", "chatbot")
-    # graph = graph_builder.compile(checkpointer=memory) NOTE: uncomment this line to enable persistence layer
-    graph = graph_builder.compile()
+    graph = graph_builder.compile(
+        checkpointer=memory
+    )  # NOTE: uncomment this line to enable persistence layer
 
     while True:
         try:
-            # for the demo of this persistent feature. 
-            # First Tell my name  and ask the name of the user in second prompt 
+            # for the demo of this persistent feature.
+            # First Tell my name  and ask the name of the user in second prompt
             user_input = input("User: ")
             if user_input.lower() in ["quit", "exit", "q"]:
                 print("Goodbye!")

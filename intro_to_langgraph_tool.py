@@ -9,14 +9,15 @@ from langchain_community.tools.tavily_search import TavilySearchResults
 from langgraph.prebuilt import ToolNode, tools_condition
 from langchain_core.tools import tool
 import os
-from util import create_and_save_gaph_image, get_openai_keys, get_tavily_api_keys, save_image
-
-
-llm = ChatOpenAI(
-    model_name="gpt-4o",
-    temperature=0.7,
-    openai_api_key=get_openai_keys()
+from util import (
+    create_and_save_gaph_image,
+    get_openai_keys,
+    get_tavily_api_keys,
+    save_image,
 )
+
+
+llm = ChatOpenAI(model_name="gpt-4o", temperature=0.7, openai_api_key=get_openai_keys())
 
 
 class State(TypedDict):
@@ -29,21 +30,21 @@ def chatbot(state: State):
 
 @tool
 def add(x: int, y: int):
-    """ Adds two numbers together. """
+    """Adds two numbers together."""
     return x + y
-    
+
 
 @tool
 def devide(state: State, x: int, y: int):
-    """ Divides two numbers. """
+    """Divides two numbers."""
     return x / y
-    
+
 
 @tool
 def multiply(x: int, y: int):
-    """ Multiplies two numbers together. """
+    """Multiplies two numbers together."""
     return x * y
-    
+
 
 tools = [add, multiply, devide]
 llm_with_tools = llm.bind_tools(tools)
@@ -53,7 +54,8 @@ def stream_graph_updates(user_input: BaseMessage, graph):
     for event in graph.stream({"messages": [{"role": "user", "content": user_input}]}):
         for value in event.values():
             print("Assistant:", value["messages"][-1].content)
-        
+
+
 def main():
     graph_builder = StateGraph(State)
     # Define Nodes
@@ -69,20 +71,25 @@ def main():
         "chatbot",
         tools_condition,
     )
-    graph = graph_builder.compile()
+    # graph = graph_builder.compile()
+    graph = graph_builder.compile(debug=True)
     # create_and_save_gaph_image(graph, filename="intro_to_langgraph_tool.png")
-    print("Welcome to the introduction to langgraph Tools with LLM! Type 'quit' to exit.")
+    print(
+        "Welcome to the introduction to langgraph Tools with LLM! Type 'quit' to exit."
+    )
     while True:
         try:
-            user_input = input("User: ") # Multiply 2 and 3
+            user_input = input("User: ")  # Multiply 2 and 3
             if user_input.lower() in ["quit", "exit", "q"]:
                 print("Goodbye!")
                 break
-            
+
         except Exception as e:
             print("Error:", e)
             break
 
         stream_graph_updates(user_input, graph)
-if __name__ == '__main__':
+
+
+if __name__ == "__main__":
     main()

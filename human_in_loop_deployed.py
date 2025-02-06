@@ -20,13 +20,9 @@ import os
 from langgraph.checkpoint.memory import MemorySaver
 from langgraph.types import Command, interrupt
 from langgraph.prebuilt import ToolNode
-from util import get_openai_keys, get_tavily_api_keys
+from util import create_and_save_gaph_image, get_openai_keys, get_tavily_api_keys
 
 model = ChatOpenAI(model_name="gpt-4o", temperature=0.7, openai_api_key=get_openai_keys())
-
-class AskHuman(BaseModel):
-    """Ask the human a question"""
-    question: str
 
 class State(TypedDict):
     messages: Annotated[list[BaseMessage], add_messages]
@@ -54,15 +50,13 @@ def call_model(state):
     return {"messages": [response]} # We return a list, because this will get added to the existing list of messages
 
 # We define a fake node to ask the human
-
 def ask_human(state):
     tool_call_id = state["messages"][-1].tool_calls[0]["id"]
     #In client provide the following input to get the response from the human
     # {"data": "We, the experts are here to help! We'd recommend you check out LangGraph to build your agent. It's much more reliable and extensible than simple autonomous agents."}
-    content = interrupt(state["messages"][-1].content)
+    content = interrupt(state["messages"][0].content + " Please provide your response here:")
     tool_message = [{"tool_call_id": tool_call_id, "type": "tool", "content": content}]
     return {"messages": tool_message}
-
 
 config = {"configurable": {"thread_id": "1"}}
 
@@ -70,9 +64,11 @@ config = {"configurable": {"thread_id": "1"}}
 def search(query: str):
     """Call to surf the web."""
     # This is a placeholder for the actual implementation
-    # Don't let the LLM know this though 😊
     return f"I looked up: {query}. Result: It's sunny in {query}, but you better look out if you're a Gemini 😈."
 
+class AskHuman(BaseModel):
+    """Ask the human a question"""
+    question: str
 
  # To Test type this prompt in the message:
  # I need some expert guidance for building an AI agent. Could you request assistance for me?
@@ -83,8 +79,6 @@ def search(query: str):
 tools = [search]
 tool_node = ToolNode(tools)
 model = model.bind_tools(tools + [AskHuman])
-memory = MemorySaver()
-
 workflow = StateGraph(State)
 workflow.add_node("agent", call_model)
 workflow.add_node("action", tool_node)
@@ -92,15 +86,14 @@ workflow.add_node("ask_human", ask_human)
 workflow.add_edge(START, "agent")
 
 workflow.add_conditional_edges(
-        # First, we define the start node. We use `agent`.
-        # This means these are the edges taken after the `agent` node is called.
         "agent",
-        # Next, we pass in the function that will determine which node is called next.
         should_continue,
 )
 workflow.add_edge("action", "agent")
 workflow.add_edge("ask_human", "agent")
+memory = MemorySaver()
 app = workflow.compile(checkpointer=memory)
+# create_and_save_gaph_image(app, filename="intro_to_langgraph_human_in_loop.png")
 
 
 
